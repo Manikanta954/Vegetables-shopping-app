@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "516891803398",
+    "project_id": "food-app-with-admin-panel-76d2",
+    "storage_bucket": "food-app-with-admin-panel-76d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516891803398:android:fe396171c0fb8d20452887",
+        "android_client_info": {
+          "package_name": "com.example.veggie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516891803398-djummobk3g72lbd9c1baaci4tou86s31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.veggie",
+            "certificate_hash": "fbb7f8b5e89aa6b21398313dfc204135da8c6a62"
+          }
+        },
+        {
+          "client_id": "516891803398-jeu9g60kt3dv06dbk7aa6vkg69a029q9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhtPdFYLnvNZC_WDAcleKcUCUWVwxTY40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516891803398-jeu9g60kt3dv06dbk7aa6vkg69a029q9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "516891803398-3fmf3at9kof2v6upq28gj5oq91bo3l1c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.veggie.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

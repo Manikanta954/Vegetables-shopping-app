@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>516891803398-3fmf3at9kof2v6upq28gj5oq91bo3l1c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.516891803398-3fmf3at9kof2v6upq28gj5oq91bo3l1c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>516891803398-djummobk3g72lbd9c1baaci4tou86s31.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBYgUJdUeuIzM7FgR7cqwf-hMcZsRVR_Ug</string>
+	<key>GCM_SENDER_ID</key>
+	<string>516891803398</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.veggie.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>food-app-with-admin-panel-76d2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>food-app-with-admin-panel-76d2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:516891803398:ios:640d117662dabc8b452887</string>
+</dict>
+</plist>
