@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:veggie/fonts.dart';
+import 'package:veggie/sign_in.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -180,6 +181,15 @@ class HomeScreen extends StatelessWidget {
             listtile(
                 icon: Icons.notifications_outlined, title: "Notifications"),
             listtile(icon: Icons.favorite_outline_rounded, title: "Wish list"),
+            InkWell(
+              child: listtile(
+                icon: Icons.arrow_back,
+                title: "Go back",
+              ),
+              onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder:(context) => SignIn(),));
+              },
+            )
           ],
         ),
       )),
@@ -316,6 +326,10 @@ class HomeScreen extends StatelessWidget {
                   singleproducts(),
                   singleproducts(),
                   singleproducts(),
+                  singleproducts(),
+                  singleproducts(),
+                  singleproducts(),
+                  singleproducts(),
                   singleproducts()
                 ],
               ),
@@ -340,6 +354,8 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
+                  singleproducts(),
+                  singleproducts(),
                   singleproducts(),
                   singleproducts(),
                   singleproducts(),
