@@ -28,6 +28,9 @@ class _SignInState extends State<SignIn> {
       );
       final User? user = (await _auth.signInWithCredential(credential)).user;
       print("signed in ${user?.displayName}");
+      ScaffoldMessenger(
+        child: Text('signed in ${user?.displayName}'),
+      );
       return user;
     } catch (e) {
       print(e);
@@ -72,11 +75,14 @@ class _SignInState extends State<SignIn> {
                   SignInButton(Buttons.google, onPressed: () {
                     _googleSignUp().then((value) =>
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => const HomeScreen(),
                         )));
                   }),
                   SignInButton(Buttons.apple, onPressed: () {
                     print('pressed apple button');
+                  }),
+                  SignInButton(Buttons.email, onPressed: () {
+                    print('pressed email button');
                   })
                 ]),
                 Column(children: [
