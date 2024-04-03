@@ -251,9 +251,6 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(),
-                  ),
                 ],
               ),
             ),
@@ -277,56 +274,85 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  
                 ],
               ),
             ),
@@ -350,56 +376,84 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
-                      SingleProduct(
-                      productImage: "assets/images/basil.png",
-                      productName: "Fresh Basil",
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>ProductOverview(),
-                            ));
-                      }),
+                 InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductOverview(),
+                              ));
+                        },
+                    child: const SingleProduct(
+                        productImage: "assets/images/basil.jpg",
+                        productName: "Fresh Basil",
+                        ),
+                  ),
                 ],
               ),
             ),
