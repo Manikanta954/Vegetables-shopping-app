@@ -2,113 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:veggie/fonts.dart';
+import 'package:veggie/product_overview.dart';
 import 'package:veggie/sign_in.dart';
+import 'package:veggie/single%20product.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  Widget singleproducts() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 6.5),
-      width: 160,
-      height: 260,
-      decoration: BoxDecoration(
-        color: containercolor,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            flex: 0,
-            child: Image.asset('assets/images/basil.jpg'),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: Column(
-                children: [
-                  Text(
-                    'Fresh Basil',
-                    style: TextStyle(
-                        fontFamily: Myfonts,
-                        fontWeight: FontWeight.w100,
-                        fontSize: 13.2),
-                  ),
-                  Text(
-                    '50\$/50 Gram',
-                    style: TextStyle(
-                        fontFamily: Myfonts, color: Colors.grey, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                    child: Container(
-                  height: 30,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Padding(
-                        padding: EdgeInsets.only(left: 7.8),
-                        child: Text(
-                          '50Gram',
-                          style: TextStyle(
-                              fontFamily: Myfonts,
-                              fontSize: 10.9,
-                              color: Color.fromARGB(255, 134, 131, 131)),
-                        ),
-                      )),
-                    ],
-                  ),
-                )),
-                const SizedBox(
-                  width: 5,
-                ),
-                Expanded(
-                    child: Container(
-                  height: 30,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.remove,
-                        size: 20,
-                        color: Color.fromARGB(255, 223, 217, 40),
-                      ),
-                      Text("1",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 223, 217, 40),
-                          )),
-                      Icon(
-                        Icons.add,
-                        size: 20,
-                        color: Color.fromARGB(255, 223, 217, 40),
-                      ),
-                    ],
-                  ),
-                ))
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
 
   Widget listtile({required IconData icon, required String title}) {
     return ListTile(
@@ -131,7 +30,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: backgrouncolor,
       drawer: Drawer(
           child: Container(
-        color: Color(0Xffd1ad17),
+        color: const Color(0Xffd1ad17),
         child: Column(
           children: [
             DrawerHeader(
@@ -168,8 +67,8 @@ class HomeScreen extends StatelessWidget {
                               child: Text("Login",
                                   style: TextStyle(
                                       fontFamily: Myfonts,
-                                      color:
-                                          Color.fromARGB(255, 90, 88, 88))))),
+                                      color: const Color.fromARGB(
+                                          255, 90, 88, 88))))),
                     ],
                   )
                 ],
@@ -177,18 +76,73 @@ class HomeScreen extends StatelessWidget {
             ),
             listtile(icon: Icons.home_outlined, title: "Home"),
             listtile(icon: Icons.shopping_bag_outlined, title: "Review cart"),
-            listtile(icon: Icons.person, title: "Profile"),
+            listtile(icon: Icons.person_2_outlined, title: "My profile"),
             listtile(
                 icon: Icons.notifications_outlined, title: "Notifications"),
             listtile(icon: Icons.favorite_outline_rounded, title: "Wish list"),
+            listtile(
+                icon: Icons.help_center_outlined, title: "Raise a complaint"),
+            listtile(icon: Icons.question_answer_outlined, title: "FAQ"),
             InkWell(
               child: listtile(
                 icon: Icons.arrow_back,
                 title: "Go back",
               ),
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder:(context) => SignIn(),));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignIn(),
+                    ));
               },
+            ),
+            //  const Expanded(child: Column(
+            //   children: [],
+            //  ))
+            Container(
+              child: Column(
+                children: [
+                  const Divider(
+                    color: Colors.grey,
+                  ),
+                  Text(
+                    "Contact support",
+                    style: TextStyle(
+                        fontFamily: Myfonts,
+                        fontSize: 15,
+                        color: Colors.grey[500]),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Call us:",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 145, 142, 142)),
+                      ),
+                      Text("91XXXXXXX",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 142, 139, 139))),
+                    ],
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Mail us:",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 145, 142, 142)),
+                      ),
+                      Text("ab@mail.com",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 143, 141, 141))),
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
@@ -323,14 +277,56 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts()
+                  SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
                 ],
               ),
             ),
@@ -354,12 +350,56 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts(),
-                  singleproducts()
+                  SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
+                      SingleProduct(
+                      productImage: "assets/images/basil.png",
+                      productName: "Fresh Basil",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>ProductOverview(),
+                            ));
+                      }),
                 ],
               ),
             ),
