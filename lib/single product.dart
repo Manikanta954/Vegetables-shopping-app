@@ -6,13 +6,11 @@ class SingleProduct extends StatefulWidget {
 
   final String productName;
 
- 
-
-  const SingleProduct(
-      {super.key,
-      required this.productImage,
-      required this.productName,
-      });
+  const SingleProduct({
+    super.key,
+    required this.productImage,
+    required this.productName,
+  });
 
   @override
   State<SingleProduct> createState() => _SingleProductState();
@@ -21,9 +19,9 @@ class SingleProduct extends StatefulWidget {
 class _SingleProductState extends State<SingleProduct> {
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView (
+    return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row (
+      child: Row(
         children: [
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 6.5),
@@ -36,11 +34,10 @@ class _SingleProductState extends State<SingleProduct> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  Expanded(
-                    flex: 0,
-                    child: Image.asset(widget.productImage),
-                  ),
-                
+                Expanded(
+                  flex: 0,
+                  child: Image.asset(widget.productImage),
+                ),
                 Expanded(
                   child: Padding(
                     padding:
