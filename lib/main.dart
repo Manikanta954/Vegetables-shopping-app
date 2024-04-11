@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:veggie/firebase_options.dart';
 import 'package:veggie/home.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Veggie",
-      home:HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

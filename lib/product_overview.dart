@@ -4,9 +4,9 @@ import 'package:veggie/fonts.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverview extends StatefulWidget {
-  final String ?productName;
-  final String ?productImage;
-  const ProductOverview({super.key,this.productName,this.productImage});
+  final String? productName;
+  final String? productImage;
+  const ProductOverview({super.key, this.productName, this.productImage});
 
   @override
   State<ProductOverview> createState() => _ProductOverviewState();
@@ -81,7 +81,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 children: [
                   ListTile(
                     title: Text(
-                      widget.productName??" ",
+                      widget.productName ?? " ",
                       style: TextStyle(fontFamily: Myfonts),
                     ),
                     subtitle: Text("\$50"),
@@ -90,7 +90,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                     child: Container(
                       height: 250,
                       padding: EdgeInsets.all(10),
-                      child: Image.asset(widget.productImage??""),
+                      child: Image.asset(widget.productImage ?? ""),
                     ),
                   ),
                   Container(
@@ -183,3 +183,6 @@ class _ProductOverviewState extends State<ProductOverview> {
     );
   }
 }
+
+
+

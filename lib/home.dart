@@ -1,167 +1,38 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:veggie/Myprofile/drawer.dart';
 import 'package:veggie/fonts.dart';
 import 'package:veggie/product_overview.dart';
-import 'package:veggie/sign_in.dart';
+import 'package:veggie/search.dart';
 import 'package:veggie/single%20product.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  Widget listtile({required IconData icon, required String title}) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        size: 35,
-        color: Colors.black54,
-      ),
-      title: Text(
-        title,
-        style:
-            TextStyle(fontFamily: Myfonts, fontSize: 15, color: Colors.black45),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgrouncolor,
-      drawer: Drawer(
-          child: Container(
-        color: const Color(0Xffd1ad17),
-        child: Column(
-          children: [
-            DrawerHeader(
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 46,
-                    backgroundColor: Colors.white24,
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.red,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Welcome Guest",
-                        style: TextStyle(
-                            fontFamily: Myfonts,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 17.5),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      SizedBox(
-                          height: 30,
-                          child: OutlinedButton(
-                              onPressed: () {},
-                              child: Text("Login",
-                                  style: TextStyle(
-                                      fontFamily: Myfonts,
-                                      color: const Color.fromARGB(
-                                          255, 90, 88, 88))))),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            listtile(icon: Icons.home_outlined, title: "Home"),
-            listtile(icon: Icons.shopping_bag_outlined, title: "Review cart"),
-            listtile(icon: Icons.person_2_outlined, title: "My profile"),
-            listtile(
-                icon: Icons.notifications_outlined, title: "Notifications"),
-            listtile(icon: Icons.favorite_outline_rounded, title: "Wish list"),
-            listtile(
-                icon: Icons.help_center_outlined, title: "Raise a complaint"),
-            listtile(icon: Icons.question_answer_outlined, title: "FAQ"),
-            InkWell(
-              child: listtile(
-                icon: Icons.arrow_back,
-                title: "Go back",
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignIn(),
-                    ));
-              },
-            ),
-            //  const Expanded(child: Column(
-            //   children: [],
-            //  ))
-            Container(
-              child: Column(
-                children: [
-                  const Divider(
-                    color: Colors.grey,
-                  ),
-                  Text(
-                    "Contact support",
-                    style: TextStyle(
-                        fontFamily: Myfonts,
-                        fontSize: 15,
-                        color: Colors.grey[500]),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Call us:",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 145, 142, 142)),
-                      ),
-                      Text("91XXXXXXX",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 142, 139, 139))),
-                    ],
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Mail us:",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 145, 142, 142)),
-                      ),
-                      Text("ab@mail.com",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 143, 141, 141))),
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      )),
+      drawer: Mydrawer(),
       appBar: AppBar(
         title: Text(
           'Home',
           style: TextStyle(fontFamily: Myfonts),
         ),
-        actions: const [
+        actions: [
           CircleAvatar(
-            radius: 12,
+            radius: 16,
             backgroundColor: Color(0xffd4d181),
-            child: Icon(Icons.search),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Search()));
+              },
+              icon:Icon(Icons.search_rounded,size:21,),
+            ),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              radius: 12,
+              radius: 16,
               backgroundColor: Color(0xffd4d181),
               child: Icon(Icons.shop),
             ),
@@ -216,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right:150),
+                          padding: const EdgeInsets.only(right: 150),
                           child: Text(
                             '30% Off',
                             style: TextStyle(
@@ -234,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right:150),
+                          padding: const EdgeInsets.only(right: 150),
                           child: Text(
                             'On all vegetables',
                             style: TextStyle(
@@ -279,198 +150,234 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview( productImage: "assets/images/brocoli.png",
-                        productName: "Broccoli",),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/brocoli.png",
+                              productName: "Broccoli",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/brocoli.png",
-                        productName: "Broccoli",
-                        ),
+                      productImage: "assets/images/brocoli.png",
+                      productName: "Broccoli",
+                    ),
                   ),
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview( productImage: "assets/images/cilantro.png",
-                        productName: "Cilantro",),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/cilantro.png",
+                              productName: "Cilantro",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/cilantro.png",
-                        productName: "Cilantro",
-                        ),
+                      productImage: "assets/images/cilantro.png",
+                      productName: "Cilantro",
+                    ),
                   ),
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(
-                                  productImage: "assets/images/romainelettuce.png" ,
-                                  productName: "Romaine Lettuce",
-                                ),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/romainelettuce.png",
+                              productName: "Romaine Lettuce",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/romainelettuce.png",
-                        productName: "Romaine Lettuce",
-                        ),
+                      productImage: "assets/images/romainelettuce.png",
+                      productName: "Romaine Lettuce",
+                    ),
                   ),
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(
-                                productImage: "assets/images/freshmint.png",
-                                productName: "Fresh Mint",
-                                ),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/freshmint.png",
+                              productName: "Fresh Mint",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/freshmint.png",
-                        productName: "Fresh Mint",
-                        ),
+                      productImage: "assets/images/freshmint.png",
+                      productName: "Fresh Mint",
+                    ),
                   ),
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/rosemary.png",
+                              productName: "Rosemary",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
+                      productImage: "assets/images/rosemary.png",
+                      productName: "Rosemary",
+                    ),
                   ),
                   InkWell(
                     onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProductOverview(
+                              productImage: "assets/images/methi.png",
+                              productName: "Methi",
+                            ),
+                          ));
+                    },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Fresh fruits',
-                    style: TextStyle(fontFamily: Myfonts, fontSize: 17.8),
-                  ),
-                  Text(
-                    'View all',
-                    style: TextStyle(fontFamily: Myfonts, color: Colors.grey),
-                  )
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                 InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
-                              ));
-                        },
-                    child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
-                        ),
+                      productImage: "assets/images/methi.png",
+                      productName: "Methi",
+                    ),
                   ),
                 ],
               ),
             ),
+            _buildFreshProduct(context),
           ],
         ),
       ),
     );
   }
+}
+
+Widget _buildFreshProduct(context) {
+  return Column(
+    children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Fresh Fruits",
+              style: TextStyle(fontFamily: Myfonts, fontSize: 17.5),
+            ),
+            Text(
+              "View all",
+              style: TextStyle(
+                  fontFamily: Myfonts, color: Colors.grey, fontSize: 15),
+            ),
+          ],
+        ),
+      ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/kiwi.png",
+                        productName: "Kiwi",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/kiwi.png",
+                productName: "Kiwi",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/guava.png",
+                        productName: "Guava",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/guava.png",
+                productName: "Guava",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/papaya.png",
+                        productName: "Papaya",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/papaya.png",
+                productName: "Papaya",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/orange.png",
+                        productName: "Orange",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/orange.png",
+                productName: "Orange",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/cherrytomato.png",
+                        productName: "Cherry Tomato",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/cherrytomato.png",
+                productName: "Cherry Tomato",
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductOverview(
+                        productImage: "assets/images/apple.png",
+                        productName: "Apple",
+                      ),
+                    ));
+              },
+              child: const SingleProduct(
+                productImage: "assets/images/apple.png",
+                productName: "Apple",
+              ),
+            ),
+          ],
+        ),
+      )
+    ],
+  );
 }
