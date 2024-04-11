@@ -45,7 +45,7 @@ class _SingleProductState extends State<SingleProduct> {
                     child: Column(
                       children: [
                         Text(
-                          'Fresh Basil',
+                          widget.productName,
                           style: TextStyle(
                               fontFamily: Myfonts,
                               fontWeight: FontWeight.w100,

@@ -27,9 +27,9 @@ class _SignInState extends State<SignIn> {
         idToken: googleAuth?.idToken,
       );
       final User? user = (await _auth.signInWithCredential(credential)).user;
-      print("signed in ${user?.displayName}");
+      print("signed in ${user!.displayName}");
       ScaffoldMessenger(
-        child: Text('signed in ${user?.displayName}'),
+        child: Text('signed in ${user.displayName}'),
       );
       return user;
     } catch (e) {

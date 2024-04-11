@@ -183,15 +183,15 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: Column(
                       children: [
                         Padding(
                           padding:
-                              const EdgeInsets.only(right: 150, bottom: 10),
+                              const EdgeInsets.only(right: 300, bottom: 10),
                           child: Container(
                             height: 50,
-                            width: 100,
+                            width: 160,
                             decoration: const BoxDecoration(
                                 color: Color(0xffd6b738),
                                 borderRadius: BorderRadius.only(
@@ -215,23 +215,26 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text(
-                          '30% Off',
-                          style: TextStyle(
-                            fontFamily: Myfonts,
-                            color: Colors.white,
-                            fontSize: 29.8,
-                            fontWeight: FontWeight.w300,
-                            shadows: [
-                              BoxShadow(
-                                  blurRadius: 5,
-                                  color: Colors.green.shade900,
-                                  offset: const Offset(3, 3))
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.only(right:150),
+                          child: Text(
+                            '30% Off',
+                            style: TextStyle(
+                              fontFamily: Myfonts,
+                              color: Colors.white,
+                              fontSize: 29.8,
+                              fontWeight: FontWeight.w300,
+                              shadows: [
+                                BoxShadow(
+                                    blurRadius: 5,
+                                    color: Colors.green.shade900,
+                                    offset: const Offset(3, 3))
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 0),
+                          padding: const EdgeInsets.only(right:150),
                           child: Text(
                             'On all vegetables',
                             style: TextStyle(
@@ -279,12 +282,13 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
+                                builder: (context) => const ProductOverview( productImage: "assets/images/brocoli.png",
+                        productName: "Broccoli",),
                               ));
                         },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
+                        productImage: "assets/images/brocoli.png",
+                        productName: "Broccoli",
                         ),
                   ),
                   InkWell(
@@ -292,12 +296,13 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
+                                builder: (context) => const ProductOverview( productImage: "assets/images/cilantro.png",
+                        productName: "Cilantro",),
                               ));
                         },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
+                        productImage: "assets/images/cilantro.png",
+                        productName: "Cilantro",
                         ),
                   ),
                   InkWell(
@@ -305,12 +310,15 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
+                                builder: (context) => const ProductOverview(
+                                  productImage: "assets/images/romainelettuce.png" ,
+                                  productName: "Romaine Lettuce",
+                                ),
                               ));
                         },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
+                        productImage: "assets/images/romainelettuce.png",
+                        productName: "Romaine Lettuce",
                         ),
                   ),
                   InkWell(
@@ -318,12 +326,15 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ProductOverview(),
+                                builder: (context) => const ProductOverview(
+                                productImage: "assets/images/freshmint.png",
+                                productName: "Fresh Mint",
+                                ),
                               ));
                         },
                     child: const SingleProduct(
-                        productImage: "assets/images/basil.jpg",
-                        productName: "Fresh Basil",
+                        productImage: "assets/images/freshmint.png",
+                        productName: "Fresh Mint",
                         ),
                   ),
                   InkWell(
