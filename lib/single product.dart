@@ -34,6 +34,7 @@ class _SingleProductState extends State<SingleProduct> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 8),
                 Expanded(
                   flex: 0,
                   child: Image.asset(widget.productImage),
