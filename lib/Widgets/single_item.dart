@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:veggie/fonts.dart';
 
-class SearchItem extends StatelessWidget {
-  const SearchItem({super.key});
+class SingleItem extends StatelessWidget {
+  const SingleItem({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veggie/fonts.dart';
-import 'package:veggie/searchitem.dart';
+import 'package:veggie/Widgets/single_item.dart';
 class Search extends StatelessWidget {
   const Search({super.key});
 
@@ -42,10 +42,11 @@ class Search extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          SearchItem(),
-          SearchItem(),
-          SearchItem(),
-          SearchItem(),
+          SingleItem(),
+          SingleItem(),
+          SingleItem(),
+          SingleItem(),
+         
         ],
       ),
     );
