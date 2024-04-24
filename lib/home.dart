@@ -38,16 +38,16 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: const Color(0xffd6b738),
+        backgroundColor: appcolor,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding:  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView(
           children: [
             Container(
               height: 150,
               decoration: BoxDecoration(
-                  image: const DecorationImage(
+                  image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/images/veg1.jpg')),
                   borderRadius: BorderRadius.circular(10)),
@@ -59,13 +59,13 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding:
-                              const EdgeInsets.only(right: 300, bottom: 10),
+                               const EdgeInsets.only(right: 300, bottom: 10),
                           child: Container(
                             height: 50,
                             width: 160,
-                            decoration: const BoxDecoration(
-                                color: Color(0xffd6b738),
-                                borderRadius: BorderRadius.only(
+                            decoration:  BoxDecoration(
+                                color:appcolor,
+                                borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(50),
                                     bottomRight: Radius.circular(50))),
                             child: Center(

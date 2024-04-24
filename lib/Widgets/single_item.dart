@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:veggie/fonts.dart';
 
+// ignore: must_be_immutable
 class SingleItem extends StatelessWidget {
-  const SingleItem({super.key});
-
+  bool? isBool=false;
+ 
+  SingleItem({this.isBool});
+ 
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,16 +26,19 @@ class SingleItem extends StatelessWidget {
             child:Container(
               height: 100,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment:isBool==false? MainAxisAlignment.spaceAround:MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     children: [
                       Text("ProductName",style: TextStyle(fontFamily: Myfonts),),
-                      Text("\$50/50 Gram",style: TextStyle(color: Colors.grey,fontFamily: Myfonts,fontSize: 12),)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 80),
+                        child: Text("\$50",style: TextStyle(color: Colors.grey,fontFamily: Myfonts,fontSize: 12),),
+                      )
                     ],
                   ),
-                  Container(
+                  isBool==false?Container(
                     margin: EdgeInsets.only(right: 15),
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     height: 35,
@@ -50,7 +57,7 @@ class SingleItem extends StatelessWidget {
                           child:Icon(Icons.arrow_drop_down,size: 20,),
                         )
                       ],),
-                  )
+                  ):Text('50 Gram')
                 ],
               ),
             ), 

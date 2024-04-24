@@ -63,7 +63,7 @@ class _ProductOverviewState extends State<ProductOverview> {
         ],
       ),
       appBar: AppBar(
-        backgroundColor: Color(0xffd6b738),
+        backgroundColor:appcolor,
         elevation: 1,
         title: Text(
           "Product View",
@@ -171,8 +171,8 @@ class _ProductOverviewState extends State<ProductOverview> {
                           style: TextStyle(fontFamily: Myfonts),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                             "Basil, (Ocimum basilicum), annual herb of the mint family (Lamiaceae), grown for its aromatic leaves. Basil is likely native to India and is widely grown as a kitchen herb. The leaves are used fresh or dried to flavour meats, fish, salads, and sauces; basil tea is a stimulant."),
                       )

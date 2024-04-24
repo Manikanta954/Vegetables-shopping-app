@@ -25,7 +25,7 @@ class Mydrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Container(
-      color: const Color(0Xffd1ad17),
+      color: appcolor,
       child: Column(
         children: [
           DrawerHeader(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:veggie/Widgets/single_item.dart';
 import 'package:veggie/fonts.dart';
 
 class ReviewCart extends StatelessWidget {
@@ -11,14 +12,34 @@ class ReviewCart extends StatelessWidget {
         title: Text('Review Cart',style: TextStyle(fontFamily: Myfonts),),
         backgroundColor: appcolor,
       ),
+      bottomNavigationBar: ListTile(
+        title: Text("Total Amount",style: TextStyle(fontFamily: Myfonts)),
+        subtitle: Text("\$ 170.00",style: TextStyle(fontFamily: Myfonts)),
+        trailing:Container(
+          width: 160,
+          child: MaterialButton(onPressed:() {
+            
+          },
+          color: appcolor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30)
+          ),
+          child: Text("Submit",style: TextStyle(fontFamily: Myfonts)),),
+          
+        ),
+      ),
       body: ListView(
-        children: [
+        children:  [
           SizedBox(
             height: 10,
           ),
           SizedBox(
             height: 10,
-          )
+          ),
+          SingleItem(),
+          SingleItem(),
+          SingleItem(),
+          SingleItem(),
         ],
       ),
     );
