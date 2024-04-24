@@ -73,6 +73,7 @@ class MyProfile extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
+                                
                                       Text(
                                         "Manikanta",
                                         style: TextStyle(
@@ -91,10 +92,10 @@ class MyProfile extends StatelessWidget {
                                     ],
                                   ),
                                   CircleAvatar(
-                                    radius: 18,
+                                    radius: 16,
                                     backgroundColor: appcolor,
                                     child: CircleAvatar(
-                                      radius: 16,
+                                      radius: 14,
                                       child: Icon(
                                         Icons.edit,
                                         size: 25,
@@ -127,10 +128,10 @@ class MyProfile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 40, left: 30),
                 child: CircleAvatar(
-                  radius: 70,
+                  radius: 66,
                   backgroundColor: backgrouncolor,
                   child: CircleAvatar(
-                    radius: 65,
+                    radius: 62,
                     backgroundColor: Colors.red,
                   ),
                 ),
