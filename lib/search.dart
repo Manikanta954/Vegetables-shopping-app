@@ -35,17 +35,17 @@ class Search extends StatelessWidget {
                 fillColor: backgrouncolor,
                 filled: true,
                 hintText: "Search for items",
-                suffixIcon: Icon(Icons.search)
+                suffixIcon: const Icon(Icons.search)
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          SingleItem(),
-          SingleItem(),
-          SingleItem(),
-          SingleItem(),
+          SingleItem(isBool: false,),
+          SingleItem(isBool: false,),
+          SingleItem(isBool: false,),
+          SingleItem(isBool: false,),
          
         ],
       ),

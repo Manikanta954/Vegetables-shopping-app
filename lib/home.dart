@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:veggie/Myprofile/drawer.dart';
+import 'package:veggie/Provider/product_provider.dart';
 import 'package:veggie/fonts.dart';
 import 'package:veggie/product_overview.dart';
 import 'package:veggie/search.dart';
 import 'package:veggie/single%20product.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context);
+    productProvider.fatchHerbsProductData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgrouncolor,
-      drawer:Mydrawer(),
+      drawer: Mydrawer(),
       appBar: AppBar(
         title: Text(
           'Home',
@@ -26,7 +41,10 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => Search()));
               },
-              icon:Icon(Icons.search_rounded,size:21,),
+              icon: Icon(
+                Icons.search_rounded,
+                size: 21,
+              ),
             ),
           ),
           Padding(
@@ -41,7 +59,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: appcolor,
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView(
           children: [
             Container(
@@ -59,12 +77,12 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Padding(
                           padding:
-                               const EdgeInsets.only(right: 300, bottom: 10),
+                              const EdgeInsets.only(right: 300, bottom: 10),
                           child: Container(
                             height: 50,
                             width: 160,
-                            decoration:  BoxDecoration(
-                                color:appcolor,
+                            decoration: BoxDecoration(
+                                color: appcolor,
                                 borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(50),
                                     bottomRight: Radius.circular(50))),
