@@ -15,15 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  ProductProvider? productProvider;
   @override
   void initState() {
-    ProductProvider productProvider = Provider.of(context);
+    ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fatchHerbsProductData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    productProvider = Provider.of(context);
     return Scaffold(
       backgroundColor: backgrouncolor,
       drawer: Mydrawer(),
@@ -165,105 +167,124 @@ class _HomeScreenState extends State<HomeScreen> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/brocoli.png",
-                              productName: "Broccoli",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/brocoli.png",
-                      productName: "Broccoli",
-                    ),
+                  children:
+                      productProvider!.getHerbsHerbsProductDataList.map((herbsProductData) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>ProductOverview(
+                            productName: herbsProductData.productName,
+                             productImage:herbsProductData.productImage,
+                          ),
+                        ));
+                  },
+                  child: SingleProduct(
+                    productImage:herbsProductData.productImage,
+                    productName: herbsProductData.productName,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/cilantro.png",
-                              productName: "Cilantro",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/cilantro.png",
-                      productName: "Cilantro",
-                    ),
+                );
+              }).toList()
+                  // children: [
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //           builder: (context) => const ProductOverview(
+                  //             productImage: "assets/images/brocoli.png",
+                  //             productName: "Broccoli",
+                  //           ),
+                  //         ));
+                  //   },
+                  //   child: const SingleProduct(
+                  //     productImage: "assets/images/brocoli.png",
+                  //     productName: "Broccoli",
+                  //   ),
+                  // ),
+                  //   InkWell(
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const ProductOverview(
+                  //               productImage: "assets/images/cilantro.png",
+                  //               productName: "Cilantro",
+                  //             ),
+                  //           ));
+                  //     },
+                  //     child: const SingleProduct(
+                  //       productImage: "assets/images/cilantro.png",
+                  //       productName: "Cilantro",
+                  //     ),
+                  //   ),
+                  //   InkWell(
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const ProductOverview(
+                  //               productImage: "assets/images/romainelettuce.png",
+                  //               productName: "Romaine Lettuce",
+                  //             ),
+                  //           ));
+                  //     },
+                  //     child: const SingleProduct(
+                  //       productImage: "assets/images/romainelettuce.png",
+                  //       productName: "Romaine Lettuce",
+                  //     ),
+                  //   ),
+                  //   InkWell(
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const ProductOverview(
+                  //               productImage: "assets/images/freshmint.png",
+                  //               productName: "Fresh Mint",
+                  //             ),
+                  //           ));
+                  //     },
+                  //     child: const SingleProduct(
+                  //       productImage: "assets/images/freshmint.png",
+                  //       productName: "Fresh Mint",
+                  //     ),
+                  //   ),
+                  //   InkWell(
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const ProductOverview(
+                  //               productImage: "assets/images/rosemary.png",
+                  //               productName: "Rosemary",
+                  //             ),
+                  //           ));
+                  //     },
+                  //     child: const SingleProduct(
+                  //       productImage: "assets/images/rosemary.png",
+                  //       productName: "Rosemary",
+                  //     ),
+                  //   ),
+                  //   InkWell(
+                  //     onTap: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const ProductOverview(
+                  //               productImage: "assets/images/methi.png",
+                  //               productName: "Methi",
+                  //             ),
+                  //           ));
+                  //     },
+                  //     child: const SingleProduct(
+                  //       productImage: "assets/images/methi.png",
+                  //       productName: "Methi",
+                  //     ),
+                  //   ),
+                  // ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/romainelettuce.png",
-                              productName: "Romaine Lettuce",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/romainelettuce.png",
-                      productName: "Romaine Lettuce",
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/freshmint.png",
-                              productName: "Fresh Mint",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/freshmint.png",
-                      productName: "Fresh Mint",
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/rosemary.png",
-                              productName: "Rosemary",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/rosemary.png",
-                      productName: "Rosemary",
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProductOverview(
-                              productImage: "assets/images/methi.png",
-                              productName: "Methi",
-                            ),
-                          ));
-                    },
-                    child: const SingleProduct(
-                      productImage: "assets/images/methi.png",
-                      productName: "Methi",
-                    ),
-                  ),
-                ],
-              ),
             ),
             _buildFreshProduct(context),
           ],

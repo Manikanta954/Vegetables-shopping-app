@@ -36,9 +36,7 @@ class ReviewCart extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          SingleItem(
-            isBool:false,
-          ),
+          SingleItem(),
           SingleItem(),
           SingleItem(),
           SingleItem(),
