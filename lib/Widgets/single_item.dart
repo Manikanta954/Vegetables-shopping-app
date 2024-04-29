@@ -3,9 +3,9 @@ import 'package:veggie/fonts.dart';
 
 // ignore: must_be_immutable
 class SingleItem extends StatelessWidget {
-  bool? isBool = false;
+  bool isBool = false;
 
-  SingleItem({this.isBool});
+  SingleItem({required this.isBool});
 
   @override
   Widget build(BuildContext context) {

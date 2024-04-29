@@ -6,7 +6,8 @@ enum SigninCharacter { fill, outline }
 class ProductOverview extends StatefulWidget {
   final String? productName;
   final String? productImage;
-  const ProductOverview({super.key, this.productName, this.productImage});
+  final int? productPrice;
+  const ProductOverview({super.key, this.productName, this.productImage, this.productPrice});
 
   @override
   State<ProductOverview> createState() => _ProductOverviewState();
@@ -63,7 +64,7 @@ class _ProductOverviewState extends State<ProductOverview> {
         ],
       ),
       appBar: AppBar(
-        backgroundColor:appcolor,
+        backgroundColor: appcolor,
         elevation: 1,
         title: Text(
           "Product View",
@@ -183,6 +184,3 @@ class _ProductOverviewState extends State<ProductOverview> {
     );
   }
 }
-
-
-

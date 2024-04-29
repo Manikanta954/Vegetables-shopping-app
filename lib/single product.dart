@@ -5,11 +5,11 @@ class SingleProduct extends StatefulWidget {
   final String productImage;
 
   final String productName;
-
+  final int productPrice;
   const SingleProduct({
     super.key,
     required this.productImage,
-    required this.productName,
+    required this.productName, required this.productPrice,
   });
 
   @override
@@ -53,7 +53,7 @@ class _SingleProductState extends State<SingleProduct> {
                               fontSize: 13.2),
                         ),
                         Text(
-                          '50\$/50 Gram',
+                          '\$${widget.productPrice}/50gram',
                           style: TextStyle(
                               fontFamily: Myfonts,
                               color: Colors.grey,

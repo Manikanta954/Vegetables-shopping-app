@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:veggie/Models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
+  productModels(QueryDocumentSnapshot element) {
+    productModel = ProductModel(
+      productImage: element.get("productImage"),
+      productName: element.get("productName"),
+      productPrice: element.get("productPrice"),
+    );
+  }
+
   List<ProductModel> herbsProductsList = [];
   late ProductModel productModel;
   fatchHerbsProductData() async {
@@ -11,11 +19,7 @@ class ProductProvider with ChangeNotifier {
         await FirebaseFirestore.instance.collection("HerbsProduct").get();
     value.docs.forEach(
       (element) {
-        productModel = ProductModel(
-          productImage: element.get("productImage"),
-          productName: element.get("productName"),
-          productPrice: element.get("productPrice"),
-        );
+        productModels(element);
         newList.add(productModel);
       },
     );
@@ -23,7 +27,27 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ProductModel>get getHerbsHerbsProductDataList {
+  List<ProductModel> get getHerbsHerbsProductDataList {
     return herbsProductsList;
+  }
+
+//Fresh products
+  List<ProductModel> freshProductsList = [];
+  fatchProductProductData() async {
+    List<ProductModel> newLis = [];
+    QuerySnapshot value =
+        await FirebaseFirestore.instance.collection("FreshProduct").get();
+    value.docs.forEach(
+      (element) {
+        productModels(element);
+        newLis.add(productModel);
+      },
+    );
+    freshProductsList = newLis;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getFreshProductDataList {
+    return freshProductsList;
   }
 }

@@ -20,7 +20,160 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fatchHerbsProductData();
+    productProvider.fatchProductProductData();
     super.initState();
+  }
+
+  Widget _buildFreshProduct(context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Fresh Fruits",
+                style: TextStyle(fontFamily: Myfonts, fontSize: 17.5),
+              ),
+              Text(
+                "View all",
+                style: TextStyle(
+                    fontFamily: Myfonts, color: Colors.grey, fontSize: 15),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+              children: productProvider!.getFreshProductDataList
+                  .map((freshProductData) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductOverview(
+                        productName: freshProductData.productName,
+                        productImage: freshProductData.productImage,
+                      ),
+                    ));
+              },
+              child: SingleProduct(
+                productImage: freshProductData.productImage,
+                productName: freshProductData.productName,
+                productPrice: freshProductData.productPrice,
+              ),
+            );
+          }).toList()
+              //  [
+              //   InkWell(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => const ProductOverview(
+              //               productImage: "assets/images/kiwi.png",
+              //               productName: "Kiwi",
+              //             ),
+              //           ));
+              //     },
+              //     child: const SingleProduct(
+              //       productImage: "assets/images/kiwi.png",
+              //       productName: "Kiwi",
+              //       productPrice: 45,
+              //     ),
+              //   ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const ProductOverview(
+              //             productImage: "assets/images/guava.png",
+              //             productName: "Guava",
+              //           ),
+              //         ));
+              //   },
+              //   child: const SingleProduct(
+              //     productImage: "assets/images/guava.png",
+              //     productName: "Guava",
+              //     productPrice: 60
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const ProductOverview(
+              //             productImage: "assets/images/papaya.png",
+              //             productName: "Papaya",
+              //           ),
+              //         ));
+              //   },
+              //   child: const SingleProduct(
+              //     productImage: "assets/images/papaya.png",
+              //     productName: "Papaya",
+              //     productPrice: 75,
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const ProductOverview(
+              //             productImage: "assets/images/orange.png",
+              //             productName: "Orange",
+              //           ),
+              //         ));
+              //   },
+              //   child: const SingleProduct(
+              //     productImage: "assets/images/orange.png",
+              //     productName: "Orange",
+              //     productPrice: 78,
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const ProductOverview(
+              //             productImage: "assets/images/cherrytomato.png",
+              //             productName: "Cherry Tomato",
+              //           ),
+              //         ));
+              //   },
+              //   child: const SingleProduct(
+              //     productImage: "assets/images/cherrytomato.png",
+              //     productName: "Cherry Tomato",
+              //     productPrice: 45,
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const ProductOverview(
+              //             productImage: "assets/images/apple.png",
+              //             productName: "Apple",
+              //           ),
+              //         ));
+              //   },
+              //   child: const SingleProduct(
+              //     productImage: "assets/images/apple.png",
+              //     productName: "Apple", productPrice: 100,
+              //   ),
+              // ),
+
+              ),
+        )
+      ],
+    );
   }
 
   @override
@@ -41,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: IconButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Search()));
+                    .push(MaterialPageRoute(builder: (context) => Search(search:productProvider!.getHerbsHerbsProductDataList,)));
               },
               icon: Icon(
                 Icons.search_rounded,
@@ -157,9 +310,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Herbs and sesonings',
                     style: TextStyle(fontFamily: Myfonts, fontSize: 17.8),
                   ),
-                  Text(
-                    'View all',
-                    style: TextStyle(fontFamily: Myfonts, color: Colors.grey),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Search(
+                            search:productProvider!.getHerbsHerbsProductDataList,
+                          )));
+                    },
+                    child: Center(
+                      child: Text(
+                        'View all',
+                        style:
+                            TextStyle(fontFamily: Myfonts, color: Colors.grey),
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -167,22 +331,23 @@ class _HomeScreenState extends State<HomeScreen> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                  children:
-                      productProvider!.getHerbsHerbsProductDataList.map((herbsProductData) {
+                  children: productProvider!.getHerbsHerbsProductDataList
+                      .map((herbsProductData) {
                 return InkWell(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>ProductOverview(
+                          builder: (context) => ProductOverview(
                             productName: herbsProductData.productName,
-                             productImage:herbsProductData.productImage,
+                            productImage: herbsProductData.productImage,
                           ),
                         ));
                   },
                   child: SingleProduct(
-                    productImage:herbsProductData.productImage,
+                    productImage: herbsProductData.productImage,
                     productName: herbsProductData.productName,
+                    productPrice: herbsProductData.productPrice,
                   ),
                 );
               }).toList()
@@ -292,131 +457,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-Widget _buildFreshProduct(context) {
-  return Column(
-    children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Fresh Fruits",
-              style: TextStyle(fontFamily: Myfonts, fontSize: 17.5),
-            ),
-            Text(
-              "View all",
-              style: TextStyle(
-                  fontFamily: Myfonts, color: Colors.grey, fontSize: 15),
-            ),
-          ],
-        ),
-      ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/kiwi.png",
-                        productName: "Kiwi",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/kiwi.png",
-                productName: "Kiwi",
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/guava.png",
-                        productName: "Guava",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/guava.png",
-                productName: "Guava",
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/papaya.png",
-                        productName: "Papaya",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/papaya.png",
-                productName: "Papaya",
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/orange.png",
-                        productName: "Orange",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/orange.png",
-                productName: "Orange",
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/cherrytomato.png",
-                        productName: "Cherry Tomato",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/cherrytomato.png",
-                productName: "Cherry Tomato",
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProductOverview(
-                        productImage: "assets/images/apple.png",
-                        productName: "Apple",
-                      ),
-                    ));
-              },
-              child: const SingleProduct(
-                productImage: "assets/images/apple.png",
-                productName: "Apple",
-              ),
-            ),
-          ],
-        ),
-      )
-    ],
-  );
 }
