@@ -36,10 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Fresh Fruits",
                 style: TextStyle(fontFamily: Myfonts, fontSize: 17.5),
               ),
-              Text(
-                "View all",
-                style: TextStyle(
-                    fontFamily: Myfonts, color: Colors.grey, fontSize: 15),
+              InkWell(
+                onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Search(
+                            search:productProvider!.getFreshProductDataList,
+                          )));
+                    },
+                child: Text(
+                  "View all",
+                  style: TextStyle(
+                      fontFamily: Myfonts, color: Colors.grey, fontSize: 15),
+                ),
               ),
             ],
           ),
@@ -194,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: IconButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Search(search:productProvider!.getHerbsHerbsProductDataList,)));
+                    .push(MaterialPageRoute(builder: (context) => Search(search:productProvider!.getAllProductsToSearch,)));
               },
               icon: Icon(
                 Icons.search_rounded,

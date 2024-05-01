@@ -4,16 +4,25 @@ import 'package:veggie/fonts.dart';
 import 'package:veggie/Widgets/single_item.dart';
 
 class Search extends StatefulWidget {
-  final List<ProductModel>?search;
-  const Search({super.key,this.search});
+  final List<ProductModel> search;
+  const Search({super.key, required this.search});
 
   @override
   State<Search> createState() => _SearchState();
 }
 
 class _SearchState extends State<Search> {
+  String query = "";
+  searchItem(String query) {
+    List<ProductModel> searchFood = widget.search.where((element) {
+      return element.productName.toLowerCase().trim().contains(query);
+    }).toList();
+    return searchFood;
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
         title: Text("Search"),
@@ -37,6 +46,13 @@ class _SearchState extends State<Search> {
             height: 52,
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
+              onChanged: (value) {
+               
+                setState(() {
+                  query = value;
+                });
+                 print(query);
+              },
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -51,15 +67,15 @@ class _SearchState extends State<Search> {
           const SizedBox(
             height: 10,
           ),
-          // Column(
-          //     children: widget.search.map((e) {
-          //   return SingleItem(
-          //     isBool: false,
-          //   );
-          // }).toList()),
-          SingleItem(
+          Column(
+              children:_searchItem.map((e) {
+            return SingleItem(
               isBool: false,
-            ),
+              productImage: e.productImage,
+              productName: e.productName,
+              productPrice: e.productPrice,
+            );
+          }).toList()),
         ],
       ),
     );

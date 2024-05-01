@@ -4,8 +4,10 @@ import 'package:veggie/fonts.dart';
 // ignore: must_be_immutable
 class SingleItem extends StatelessWidget {
   bool isBool = false;
-
-  SingleItem({required this.isBool});
+  String productName;
+  String productImage;
+  int productPrice;
+  SingleItem({super.key,required this.isBool,required this.productImage,required this.productName,required this.productPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class SingleItem extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   child: Center(
-                    child: Image.asset("assets/images/orange.png"),
+                    child: Image.asset(productImage),
                   ),
                 ),
               ),
@@ -35,13 +37,13 @@ class SingleItem extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "ProductName",
+                            productName,
                             style: TextStyle(fontFamily: Myfonts),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 80),
                             child: Text(
-                              "\$50",
+                              "$productPrice\$",
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontFamily: Myfonts,
@@ -90,78 +92,81 @@ class SingleItem extends StatelessWidget {
                     padding: isBool == false
                         ? EdgeInsets.symmetric(horizontal: 15, vertical: 35)
                         : EdgeInsets.only(left: 15, right: 15),
-                    child: isBool==false?Container(
-                      height: 25,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(35),
-                      ),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.add,
-                              color: appcolor,
-                              size: 20,
+                    child: isBool == false
+                        ? Container(
+                            height: 25,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(35),
                             ),
-                            Text("Add",
-                                style: TextStyle(
-                                  color: appcolor,
-                                ))
-                          ],
-                        ),
-                      ),
-                    ):Column(
-                      children: [
-                        Icon(Icons.delete,size: 30,),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                      height: 35,
-                      width: 78,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(35),
-                      ),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.add,
-                              color: appcolor,
-                              size: 30,
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    color: appcolor,
+                                    size: 20,
+                                  ),
+                                  Text("Add",
+                                      style: TextStyle(
+                                        color: appcolor,
+                                      ))
+                                ],
+                              ),
                             ),
-                            Text("Add",
-                                style: TextStyle(
-                                  color: appcolor,
-                                  fontSize: 15.5,
-                                ))
-                          ],
-                        ),
-                      ),
-                    )
-                        
-                      ],
-                    ),
+                          )
+                        : Column(
+                            children: [
+                              Icon(
+                                Icons.delete,
+                                size: 30,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Container(
+                                height: 35,
+                                width: 78,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(35),
+                                ),
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.add,
+                                        color: appcolor,
+                                        size: 30,
+                                      ),
+                                      Text("Add",
+                                          style: TextStyle(
+                                            color: appcolor,
+                                            fontSize: 15.5,
+                                          ))
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                   ),
                 ),
               ),
-              
             ],
-          
           ),
-          isBool==false?Container():Divider(
-                height: 0,
-                color: Color.fromARGB(255, 158, 156, 156),
-              ),
+          isBool == false
+              ? Container()
+              : Divider(
+                  height: 0,
+                  color: Color.fromARGB(255, 158, 156, 156),
+                ),
           SizedBox(
             height: 5.5,
           ),
-          
         ],
       ),
     );

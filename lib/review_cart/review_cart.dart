@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:veggie/Widgets/single_item.dart';
 import 'package:veggie/fonts.dart';
 
 class ReviewCart extends StatelessWidget {
@@ -36,7 +35,7 @@ class ReviewCart extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-         SingleItem(isBool: true)
+   
         ],
       ),
     );

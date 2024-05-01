@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:veggie/Models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
+ 
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
       productImage: element.get("productImage"),
       productName: element.get("productName"),
       productPrice: element.get("productPrice"),
     );
+    search.add(productModel);
   }
-
+   List<ProductModel> search = [];
   List<ProductModel> herbsProductsList = [];
   late ProductModel productModel;
+  
   fatchHerbsProductData() async {
     List<ProductModel> newList = [];
     QuerySnapshot value =
@@ -50,4 +53,9 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> get getFreshProductDataList {
     return freshProductsList;
   }
-}
+
+//search return
+ List<ProductModel> get getAllProductsToSearch {
+    return search;
+  }
+  }
