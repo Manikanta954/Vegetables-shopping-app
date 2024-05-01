@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import 'package:sign_in_button/sign_in_button.dart';
+import 'package:veggie/Provider/user_provider.dart';
 import 'package:veggie/home.dart';
 
 class SignIn extends StatefulWidget {
@@ -12,6 +14,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  late UserProvider userProvider;
   Future<User?> _googleSignUp() async {
     try {
       final GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -28,6 +31,7 @@ class _SignInState extends State<SignIn> {
       );
       final User? user = (await _auth.signInWithCredential(credential)).user;
       print("signed in ${user!.displayName}");
+      userProvider.addUserData(user,user.displayName,user.email,user.photoURL);
       ScaffoldMessenger(
         child: Text('signed in ${user.displayName}'),
       );
@@ -40,6 +44,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
         body: Container(
       height: double.infinity,
