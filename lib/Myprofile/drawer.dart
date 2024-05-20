@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veggie/Myprofile/myprofile.dart';
 import 'package:veggie/fonts.dart';
-import 'package:veggie/review_cart/review_cart.dart';
 import 'package:veggie/sign_in.dart';
 
 class Mydrawer extends StatelessWidget {
@@ -72,11 +71,11 @@ class Mydrawer extends StatelessWidget {
           listtile(icon: Icons.home_outlined, title: "Home"),
           InkWell(child: listtile(icon: Icons.shopping_bag_outlined, title: "Review cart"),
           onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
-                  ));
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => ReviewCart(),
+              //     ));
             },),
           InkWell(
             child: listtile(

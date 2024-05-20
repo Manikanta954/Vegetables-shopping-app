@@ -7,6 +7,7 @@ import 'package:veggie/Provider/product_provider.dart';
 import 'package:veggie/Provider/user_provider.dart';
 import 'package:veggie/firebase_options.dart';
 import 'package:veggie/home.dart';
+import 'package:veggie/review_cart/review_cart_provider.dart';
 import 'package:veggie/sign_in.dart';
 
 void main() async {
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         create: (context) => ProductProvider(),),
          ChangeNotifierProvider<UserProvider>(
         create: (context) => UserProvider(),
+      ),
+       ChangeNotifierProvider<ReviewCartProvider>(
+        create: (context) => ReviewCartProvider(),
       ),
     ],
     // ignore: dead_code

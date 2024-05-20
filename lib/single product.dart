@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:veggie/Widgets/count.dart';
 import 'package:veggie/fonts.dart';
 
 class SingleProduct extends StatefulWidget {
@@ -94,34 +95,13 @@ class _SingleProductState extends State<SingleProduct> {
                       const SizedBox(
                         width: 5,
                       ),
-                      Expanded(
-                          child: Container(
-                        height: 30,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.remove,
-                              size: 20,
-                              color: Color.fromARGB(255, 223, 217, 40),
-                            ),
-                            Text("1",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 223, 217, 40),
-                                )),
-                            Icon(
-                              Icons.add,
-                              size: 20,
-                              color: Color.fromARGB(255, 223, 217, 40),
-                            ),
-                          ],
-                        ),
-                      ))
+                     Count(
+                      productId:"123",
+                      productImage:widget.productImage,
+                      productName: widget.productName,
+                      productPrice: widget.productPrice,
+                      productQuantity:"1",
+                     ),
                     ],
                   ),
                 )
